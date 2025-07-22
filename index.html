@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #84fab0, #8fd3f4);
+      background-size: 400% 400%;
+      animation: gradientBG 6s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    textarea {
+      height: 80px;
+      resize: none;
+    }
+
+    button {
+      background: #ffffff;
+      color: #4facfe;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #4facfe;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 14px;
+      color:rgb(255, 127, 127);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Feedback Form</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="feedback" placeholder="Your Feedback"></textarea>
+    <button onclick="submitFeedback()">Submit</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function submitFeedback() {
+      const name = document.getElementById('name').value;
+      document.getElementById('message').innerText =
+        `✅ Thank you for your feedback, ${name || 'Guest'}!`;
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('feedback').value = '';
+    }
+  </script>
+</body>
+</html>
